@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>That's crazy</title>
+
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            background-image: url('cây.jpg');
+            /* Đường dẫn đến ảnh nền */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100%;
+            /* Đảm bảo nền kéo dài ít nhất bằng chiều cao của trang */
+            display: flex;
+            justify-content: center;
+            background-color: black;
+            /*  được sử dụng để xác định khoảng cách giữa phần tử hiện tại và các phần tử khác xung quanh nó.
+             đặt giá trị margin của tất cả các hướng (trên, dưới, trái, phải) thành 0, loại bỏ khoảng cách giữa phần tử và các phần tử khác */
+            margin: 0;
+            /* ranh dới  xác định khoảng cách giữa nội dung của phần tử và ranh giới của nó (border). 
+            đặt giá trị padding của tất cả các hướng thành 0, làm cho nội dung của phần tử tiếp xúc trực tiếp với ranh giới của nó, không có khoảng trống nào. */
+            padding: 0;   
+            align-items: flex-start; /* Căn bảng ở phía trên */
+
+        }
+
+        .name {
+            font-weight: bold;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .name:hover {
+            color: blue;
+
+        }
+
+        .guiButton {
+            height: 25px;
+            font-weight: bold;
+            color: blue;
+            width: 60px;
+            background-color: rgba(200, 206, 216, 0.988);
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 3px;
+        }
+
+        .guiButton:hover {
+            opacity: 0.7;
+        }
+
+        .gioitinhButton {
+            height: 22px;
+            background-color: white;
+            padding-left: 3px;
+            padding-top: 1.5px;
+            padding-right: 3px;
+            padding-bottom: 1.5px;
+            cursor: pointer;
+            color: black;
+            margin-top: 5px;
+            border-width: 2px;
+            font-size: 10px;
+
+        }
+
+        .gioitinhButton:hover {
+            opacity: 0.7;
+        }
+
+        .gioitinhText {
+            font-weight: bold;
+        }
+
+        .login-form-content {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .login-form {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: none ;
+            border-radius: 5px;
+            background-color: beige;
+            
+        }
+
+        .len_mau_goc {
+            background-color: brown;
+            color: wheat;
+            cursor: pointer;
+            position: absolute;
+            top: 0px;
+            right: 10px;
+            font-size: 20px;
+            border: none;
+            border-radius: 50px;
+        }
+
+        .len_mau_goc:hover {
+            background-color: red;
+        }
+
+        .thoat {
+            position: absolute;
+            top: 0px;
+            right: 5px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .thoat:hover {
+            color: white;
+            background-color: red;
+            border-radius: 5px;
+            /* Màu khi hover */
+        }
+
+        .ki-hieu {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 30px;
+            color: rgb(165, 136, 42);
+        }
+        
+        table {
+            border-collapse: collapse;
+            width: 70%;
+            margin-top: 20px; /* Khoảng cách từ trên xuống */
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+            width: 33.33%; /* Đặt chiều rộng để chia đều thành 3 cột */
+        }
+        
+    </style>
+
+    <a href="javascript:void(0);" onclick="trang_chinh" class="ki-hieu">T&N</a>
+</head>
+
+<body>
+
+    <table >
+        <thead>
+            <tr >
+                <th>Trang chủ</th>
+                <th>Tấn</th>
+                <th>Ngân</th>
+            </tr>
+        </thead>
+    </table>
+
+    <p class="len_mau_goc" onclick="hien_form()">Đăng Nhập</p>
+
+    <form action="https://www.youtube.com/shorts/q5RgTAUn9Qc" target="_self" method="post" autocomplete="off" novalidate
+        id="login-form" class="login-form">
+        <div class="login-form-content">
+            <!-- tác dụng của for đúng sẽ có tác dụng rằng khi click chuột vào điểm label là Họ tên
+             thì click chuột đó sẽ đưỢc chuyển hướng sang bên ô nhập mà label đó kí hiệu cho -->
+            <label class="name" for="fullName">
+                <strong>Tài Khoản</strong>
+            </label>
+
+            <br />
+
+            <input id="fullName" type="text" name="full_name" />
+
+            <br />
+
+            <label class="name" for="mk"> <strong>Mật Khẩu</strong>
+            </label>
+
+            <br />
+
+            <input type="text" id="mk" name="mk" />
+            <br />
+
+            <!-- Tạo bảng dropdown sổ xuống hoặc ngắn gọn 1 dòng chọn -->
+            <!-- Thêm lệnh selected để chọn cái nào làm mặc định ghi trong option -->
+            <!-- name cho select để đưa lên sever -->
+            <!-- thêm value trong option để nó đưa lên sever hiểu được chọn gì -->
+
+            <label class="gioitinhText" for="sex"> Giới tính:
+            </label>
+            <select class="gioitinhButton" name="gioi_tinh" id="sex">
+                <option selected value="men">NAM
+                </option>
+                <option value="girl">NỮ
+                </option>
+            </select>
+            <input class="guiButton" type="submit" value="Gửi" onclick="dong_form()">
+            <div class="thoat" onclick="dong_form()">x</div>
+            <br />
+        </div>
+    </form>
+
+
+    <!--    CODE JS -->
+
+    <script>
+        function hien_form() {
+            var go = document.getElementById("login-form");
+            go.style.display = (go.style.display === "none") ? "block" : "none";
+        }
+
+
+        function dong_form() {
+            document.getElementById("login-form").style.display = "none";
+        }
+
+        function trang_chinh() {
+            window.history.back();
+        }
+    </script>
+
+</body>
+
+</html>
